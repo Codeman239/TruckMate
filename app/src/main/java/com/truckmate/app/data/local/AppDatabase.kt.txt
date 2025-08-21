@@ -1,0 +1,17 @@
+package com.truckmate.app.data.local
+
+import androidx.room.Database
+import androidx.room.RoomDatabase
+import com.truckmate.app.data.local.Dao.TruckDao
+import com.truckmate.app.data.local.Dao.MenuDao
+import com.truckmate.app.data.local.Dao.OrderDao
+import com.truckmate.app.data.local.entities.TruckEntity
+import com.truckmate.app.data.local.entities.MenuItemEntity
+import com.truckmate.app.data.local.entities.OrderEntity
+
+@Database(entities = [TruckEntity::class, MenuItemEntity::class, OrderEntity::class], version = 1)
+abstract class AppDatabase : RoomDatabase() {
+    abstract fun truckDao(): TruckDao
+    abstract fun menuDao(): MenuDao
+    abstract fun orderDao(): OrderDao
+}

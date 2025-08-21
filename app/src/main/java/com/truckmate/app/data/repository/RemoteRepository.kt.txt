@@ -1,0 +1,10 @@
+package com.truckmate.app.data.repository
+
+import com.truckmate.app.data.remote.FirebaseService
+
+class RemoteRepository(private val firebaseService: FirebaseService) {
+
+    suspend fun fetchTrucksFromServer() = firebaseService.fetchTrucksRealtime()
+
+    // Expand: push orders, update menus, listen for order status changes, etc.
+}

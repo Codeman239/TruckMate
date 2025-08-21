@@ -1,0 +1,13 @@
+package com.truckmate.app.util
+
+/**
+ * Simple helper placeholder for requesting location or computing distance.
+ * For real projects you'd use FusedLocationProviderClient (Google Play Services).
+ */
+object LocationHelper {
+    fun distanceMeters(lat1: Double, lon1: Double, lat2: Double, lon2: Double): Float {
+        val results = FloatArray(1)
+        android.location.Location.distanceBetween(lat1, lon1, lat2, lon2, results)
+        return results[0]
+    }
+}

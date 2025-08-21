@@ -1,0 +1,14 @@
+package com.truckmate.app.data.local.entities
+
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+@Entity(tableName = "orders")
+data class OrderEntity(
+    @PrimaryKey val id: String,
+    val truckId: String,
+    val itemsJson: String, // simple JSON string for order items
+    val total: Double,
+    val status: String,
+    val createdAt: Long
+)

@@ -1,0 +1,21 @@
+package com.truckmate.app.ui.screens
+
+import androidx.compose.foundation.layout.*
+import androidx.compose.material3.*
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
+
+@Composable
+fun CartScreen(onCheckout: () -> Unit) {
+    Column(Modifier.fillMaxSize().padding(12.dp)) {
+        Text("Cart", style = MaterialTheme.typography.headlineSmall)
+        Spacer(modifier = Modifier.height(8.dp))
+        // Placeholder: show sample cart items
+        Text("1 x Tasty Taco - $8.00")
+        Spacer(modifier = Modifier.height(8.dp))
+        Button(onClick = onCheckout, modifier = Modifier.fillMaxWidth()) {
+            Text("Checkout")
+        }
+    }
+}

@@ -1,0 +1,14 @@
+package com.truckmate.app.data.local.entities
+
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+@Entity(tableName = "menu")
+data class MenuItemEntity(
+    @PrimaryKey val id: String,
+    val truckId: String,
+    val name: String,
+    val price: Double,
+    val available: Boolean = true,
+    val description: String? = null
+)

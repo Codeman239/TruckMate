@@ -1,0 +1,20 @@
+[
+  {
+    "id": "truck1",
+    "name": "Tasty Tacos",
+    "latitude": 40.0000,
+    "longitude": -74.0000,
+    "description": "Fresh tacos, local ingredients",
+    "isOpen": true,
+    "rating": 4.8
+  },
+  {
+    "id": "truck2",
+    "name": "Burger Bus",
+    "latitude": 40.0100,
+    "longitude": -74.0100,
+    "description": "Gourmet burgers on wheels",
+    "isOpen": true,
+    "rating": 4.5
+  }
+]

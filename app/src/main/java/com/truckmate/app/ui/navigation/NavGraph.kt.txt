@@ -1,0 +1,25 @@
+package com.truckmate.app.ui.navigation
+
+import androidx.compose.runtime.Composable
+import androidx.navigation.NavType
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import com.truckmate.app.ui.screens.*
+
+@Composable
+fun NavGraph() {
+    val navController = rememberNavController()
+    NavHost(navController = navController, startDestination = "home") {
+        composable("home") { HomeScreen(onOpenDetails = { id ->
+            navController.navigate("details/$id")
+        }) }
+        composable("details/{truckId}", arguments = listOf(navArgument("truckId") { type = NavType.StringType })) { backStackEntry ->
+            val truckId = backStackEntry.arguments?.getString("truckId") ?: ""
+            TruckDetailsScreen(truckId = truckId, onOpenCart = { navController.navigate("cart") })
+        }
+        composable("cart") { CartScreen(onCheckout = { /* TODO */ }) }
+        composable("profile") { ProfileScreen() }
+        composable("vendor") { VendorDashboardScreen() }
+    }
+}

@@ -1,0 +1,16 @@
+package com.truckmate.app.data.remote
+
+/**
+ * FirebaseService is a very small placeholder showing where you'd put real Firestore/FCM code.
+ * After you add google-services.json and enable Firebase in the console, you can replace the
+ * stubbed functions with real implementations using FirebaseAuth, FirebaseFirestore, and FCM.
+ */
+class FirebaseService {
+    suspend fun fetchTrucksRealtime() : List<Map<String, Any>> {
+        // Example: call Firestore and return truck documents.
+        // For now return empty list (Room will be seeded via sample JSON)
+        return emptyList()
+    }
+
+    // Add more functions: createOrder, updateMenuItem, listenToOrderUpdates, etc.
+}

@@ -1,0 +1,36 @@
+package com.truckmate.app.di
+
+import android.content.Context
+import androidx.room.Room
+import com.truckmate.app.data.local.AppDatabase
+import com.truckmate.app.data.repository.LocalRepository
+import com.truckmate.app.data.remote.FirebaseService
+import com.truckmate.app.data.repository.RemoteRepository
+import dagger.Module
+import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.components.SingletonComponent
+import javax.inject.Singleton
+import dagger.hilt.android.qualifiers.ApplicationContext
+
+@Module
+@InstallIn(SingletonComponent::class)
+object AppModule {
+
+    @Provides
+    @Singleton
+    fun provideDatabase(@ApplicationContext context: Context): AppDatabase =
+        Room.databaseBuilder(context, AppDatabase::class.java, "truckmate-db").fallbackToDestructiveMigration().build()
+
+    @Provides
+    @Singleton
+    fun provideLocalRepository(db: AppDatabase): LocalRepository = LocalRepository(db)
+
+    @Provides
+    @Singleton
+    fun provideFirebaseService(): FirebaseService = FirebaseService()
+
+    @Provides
+    @Singleton
+    fun provideRemoteRepository(fs: FirebaseService): RemoteRepository = RemoteRepository(fs)
+}

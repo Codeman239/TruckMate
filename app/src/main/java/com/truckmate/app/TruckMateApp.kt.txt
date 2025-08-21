@@ -1,0 +1,13 @@
+package com.truckmate.app
+
+import android.app.Application
+import dagger.hilt.android.HiltAndroidApp
+
+@HiltAndroidApp
+class TruckMateApp : Application() {
+    override fun onCreate() {
+        super.onCreate()
+        // Initialize Firebase here if you added google-services.json and enabled Firebase
+        // FirebaseApp.initializeApp(this)
+    }
+}

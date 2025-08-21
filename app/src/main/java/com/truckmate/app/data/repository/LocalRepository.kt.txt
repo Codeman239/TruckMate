@@ -1,0 +1,22 @@
+package com.truckmate.app.data.repository
+
+import com.truckmate.app.data.local.AppDatabase
+import com.truckmate.app.data.local.entities.MenuItemEntity
+import com.truckmate.app.data.local.entities.TruckEntity
+import com.truckmate.app.data.local.entities.OrderEntity
+import kotlinx.coroutines.flow.Flow
+
+class LocalRepository(private val db: AppDatabase) {
+
+    fun getAllTrucks(): Flow<List<TruckEntity>> = db.truckDao().getAllTrucks()
+
+    suspend fun saveTrucks(trucks: List<TruckEntity>) = db.truckDao().insertAll(trucks)
+
+    fun getMenuForTruck(truckId: String): Flow<List<MenuItemEntity>> = db.menuDao().getMenuForTruck(truckId)
+
+    suspend fun saveMenu(items: List<MenuItemEntity>) = db.menuDao().insertMenu(items)
+
+    fun getOrders(): Flow<List<OrderEntity>> = db.orderDao().getAllOrders()
+
+    suspend fun saveOrder(order: OrderEntity) = db.orderDao().insertOrder(order)
+}
